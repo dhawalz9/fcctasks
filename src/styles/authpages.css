@@ -1,101 +1,117 @@
-.signup-container{
-    width: 50%;
-    height: 60%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(251, 241, 241);
-    border-radius: 10px;
-
+.signup-container {
+  width: 50%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(251, 241, 241);
+  border-radius: 10px;
 }
-.signup-card{
-    width: 100%;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
+.signup-card {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.signup{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.signup h1{
-    margin-bottom: 20px;
+.signup h1 {
+  margin-bottom: 20px;
 }
-.signup input{
-    width: 90%;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
+.signup input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
 }
-.signup button{
-    width: 80%;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    background-color: rgb(210, 145, 188);
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
+.signup button {
+  width: 80%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: rgb(210, 145, 188);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
-.form-button{
-    width: 100px;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    background-color: rgb(210, 145, 188);
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-
+.form-button {
+  width: 100px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: rgb(210, 145, 188);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
 .pat-doc button {
-    background-color: rgb(251, 241, 241);
-    border: none;
-    padding: 10px;
-    margin: 10px;
-    cursor: pointer;
-    color: black;
+  background-color: rgb(251, 241, 241);
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  color: black;
 }
 
 .pat-doc button.active {
-    background-color: rgb(210, 145, 188);
-    color: black;
+  background-color: rgb(210, 145, 188);
+  color: black;
 }
-.pat-doc{
-    display: flex;
-    justify-content: space-between;
+.pat-doc {
+  display: flex;
+  justify-content: space-between;
 }
 
 .OTP input {
-    width: 90%;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
 }
 
-.sign-up-phone{
-    text-decoration: none;
-    color: white;
+.sign-up-phone {
+  text-decoration: none;
+  color: white;
 }
 
-.react-tel-input .flag-dropdown{
-    background-color: #FFFFFF !important;
-    border: none !important;
+.react-tel-input .flag-dropdown {
+  background-color: #ffffff !important;
+  border: none !important;
 }
-.react-tel-input .form-control{
-    border: none !important;
+.react-tel-input .form-control {
+  border: none !important;
+}
+
+.user-already {
+  font-weight: bold;
+  font-size: 18px;
+}
+.user-already a {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.email-signup-btn{
+  font-weight: bold;
+  font-size: 18px;
+}
+.email-signup-btn a{
+  color: #551A8B;
+  font-weight: bold;
+  font-size: 18px;
 }

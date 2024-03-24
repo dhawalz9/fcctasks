@@ -10,7 +10,7 @@ import {
   RecaptchaVerifier,
   signInWithPhoneNumber,
 } from "firebase/auth";
-import {getFirestore, collection, addDoc } from 'firebase/firestore'
+import {getFirestore, collection, addDoc, query, where, getDocs } from 'firebase/firestore'
 
 const FirebaseContext = createContext(null);
 
@@ -39,7 +39,7 @@ export const FirebaseProvider = (props) => {
   // user includes - all the user details provided by firebase
   const [user, setUser] = useState(null);
 
-  // userDetails includes - email, emailVerified, phoneNumber
+  // userDetails includes - email, emailVerified, phoneNumber, isDummy, phoneVerified
   const [userDetails, setUserDetails] = useState(null);
   
   // phoneVerified - true if the user has verified the phone number or if the user has a dummy email
@@ -137,6 +137,9 @@ export const FirebaseProvider = (props) => {
       setUserDetails({
         email: userCredential.user.email,
         emailVerified: userCredential.user.emailVerified,
+        phoneNumber: backupPhone,
+        isDummy: false,
+        phoneVerified: false,
       });
       const user = userCredential.user;
       await sendEmailVerification(user);

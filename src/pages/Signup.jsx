@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/authpages.css";
 import Footer from "../components/Footer";
 import { useFirebase } from "../context/firebaseAuth";
-import { Link, Navigate, redirect, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 
 const Signup = () => {
   const firebase = useFirebase();
-  console.log(firebase);
+  // console.log(firebase);
 
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const [otp, setOtp] = useState("");
-  const [otpVerified, setOtpVerified] = useState(false);
+  // const [otpVerified, setOtpVerified] = useState(false);
   const [sendOtp, setSendOtp] = useState(false);
 
-  const [isEmail, setIsEmail] = useState(false);
+  // const [isEmail, setIsEmail] = useState(false);
   const [isPhone, setIsPhone] = useState(false);
 
-  const [backupEmail, setBackupEmail] = useState("");
-  const [backupPhone, setBackupPhone] = useState("");
+  // const [backupEmail, setBackupEmail] = useState("");
+  // const [backupPhone, setBackupPhone] = useState("");
 
   const [passworderror, setPasswordError] = useState("");
   const [otpError, setOtpError] = useState("");
@@ -29,7 +29,7 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const [emailPh, setEmailPh] = useState("");
-  console.log(emailPh);
+  // console.log(emailPh);
   // const {recaptchaVerifier} = useFirebase();
   const [user, setUser] = useState(null);
 
@@ -77,16 +77,23 @@ const Signup = () => {
   const getOtp = async (e) => {
     e.preventDefault();
 
+    //error handling
     if(password !== confirmPassword){
       setPasswordError("Passwords do not match");
       return;
     }
-
+    else{
+      setPasswordError("");
+    }
     if(password.length < 6){
       setPasswordError("Password should be atleast 6 characters long");
       return;
     }
+    else{
+      setPasswordError("");
+    }
 
+    // check if the inupt phone number is valid
     const phoneRegex = /^\+(?:[0-9] ?){6,14}[0-9]$/;
     if (phoneRegex.test(emailPh)) {
       try {
@@ -100,7 +107,8 @@ const Signup = () => {
         console.log(error);
       }
     } else {
-      console.log("Invalid phone number");
+      setPasswordError("Invalid phone number");
+      return;
     }
   };
 
@@ -114,6 +122,10 @@ const Signup = () => {
           console.log("Invalid OTP");
           setOtpError("The OTP is not correct");
         }
+        // if(data.code === 'auth/email-already-in-use'){
+        //   firebase.logout();
+        //   navigate("/signin");
+        // }
       } catch (error) {
         console.log(error);
       }
@@ -122,16 +134,16 @@ const Signup = () => {
     }
   };
 
-  const signupAction = async (e) => {
-    e.preventDefault();
-    const result = await firebase.signupUserAndVerification(
-      email,
-      password,
-      backupPhone
-    );
-    console.log(firebase);
-    console.log(result);
-  };
+  // const signupAction = async (e) => {
+  //   e.preventDefault();
+  //   const result = await firebase.signupUserAndVerification(
+  //     email,
+  //     password,
+  //     backupPhone
+  //   );
+  //   console.log(firebase);
+  //   console.log(result);
+  // };
 
   useEffect(() => {
     if (firebase.userDetails) {
@@ -153,7 +165,7 @@ const Signup = () => {
                   country={"in"}
                   onChange={(number) => {
                     setEmailPh("+" + number);
-                    setBackupPhone("+" + number);
+                    // setBackupPhone("+" + number);
                   }}
                   placeholder="Phone number"
                   specialLabel=""
@@ -187,7 +199,7 @@ const Signup = () => {
             </>
           )}
 
-          {isEmail && (
+          {/* {isEmail && (
             <form onSubmit={signupAction} className="signup">
               <input
                 type="password"
@@ -199,7 +211,7 @@ const Signup = () => {
                 Signup with Email
               </button>
             </form>
-          )}
+          )} */}
 
           {isPhone && (
             <>
@@ -242,8 +254,12 @@ const Signup = () => {
             </div>
 
           </form> */}
-          <p>
+          <p className="user-already">
             Already a user <Link to="/signin">Signin</Link>
+          </p>
+          <br />
+          <p className="email-signup-btn">
+            Signup using <Link to="/signup-email">Email</Link>
           </p>
 
           {/* {firebase.userDetails?.emailVerified ? <>
