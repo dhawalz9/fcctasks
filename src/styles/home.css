@@ -5,7 +5,7 @@
 .App {
   text-align: center;
 }
-
+/* 
 .App-header {
   background-color: rgb(251, 241, 241);
   padding: 20px;
@@ -25,23 +25,236 @@
 }
 .login {
   padding: 5px;
-  background-color: rgb(210, 145, 188);
+  background-color: rgb(48, 113, 255);
 }
 
 .App-header nav ul li a {
   color: rgb(0, 0, 0);
   text-decoration: none;
-}
+} */
 
 .App-main {
+  background-color: rgb(251, 241, 241);
+}
+
+.calander {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  flex-direction: column;
+}
+.appoinment {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  margin-top: 20px;
+  /* flex-direction: column; */
+}
+
+.appoinment {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-appoints,
+.book-appoints {
+  width: 50%;
+  margin: 0 2.5%;
+}
+
+.book-appoints {
+  background-color: rgb(48, 113, 255);
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 100px;
+}
+
+.appoint-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  flex-direction: column;
+}
+.appoint-form select {
+  width: 70%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: rgb(251, 241, 241);
+  border-radius: 10px;
+}
+.appoint-form .ck-slots {
+  padding: 10px;
+  background-color: rgb(251, 241, 241);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 100px;
+  width: 70%;
+}
+.slots {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  margin-top: 20px;
+}
+.slot {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  padding: 10px;
+  background-color: rgb(251, 241, 241);
+  border-radius: 10px;
+}
+.slot.selected {
+  background-color: rgb(48, 113, 255);
+}
+.appoints-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 40px;
+  margin-top: 20px;
+}
+.prev-appointment {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+}
+.user-appoints {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  flex-direction: column;
+  background-color: rgb(48, 113, 255);
+  color: rgb(255, 255, 255);
+  padding: 50px;
+  border-radius: 10px;
+}
+
+
+
+.change-capsule {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  padding-bottom: 30px;
+  background-color: rgb(251, 241, 241);
+}
+.change-capsule button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(48, 113, 255);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 20px;
+  transition: all 0.3s ease;
+}
+.change-capsule button:hover {
+  background-color: rgb(251, 241, 241);
+  color: rgb(48, 113, 255);
+}
+
+.change-capsule .selected {
+  background-color: rgb(251, 241, 241);
+  color: rgb(0, 0, 0);
+}
+.about-company p {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+
+.hero-wrap {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1; /* Ensures the content is displayed above the overlay */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Aligns items to the left */
+  padding-left: 50px;
+  width: 70%;
+}
+
+.typewrite { /* Adjust this value to change the font size */
+  font-size: 4rem;
+  font-weight: 100;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.mb-7 {
+  margin-bottom: 1em;
+  font-size: 2rem;
+  line-height: 1.4;
+  font-weight: 100;
+}
+
+.modal-dialog {
+  z-index: 2147483647;
+}
+
+.device-img-modal{
+  width: 100px;
+
+}
+
+.modal-content {
   padding: 20px;
 }
 
-.App-footer {
-  background-color: rgb(210, 145, 188);
-  padding: 20px;
-  color: rgb(255, 255, 255);
-  position: fixed;
-  width: 100%;
-  bottom: 0;
+.modal-body {
+  font-size: 14px;
+}
+
+.modal-body ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.modal-body li {
+  margin-bottom: 10px;
+}
+
+.modal-body li strong {
+  margin-right: 5px;
+}
+
+.change-capsule .link-nodec{
+  text-decoration: none;
+  color: white;
+  
 }

@@ -1,11 +1,22 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #000000;
+  color: white;
 }
-.dashboard{
+.dashboard {
   padding: 20px;
   margin-bottom: 100px;
 }
+
+.layout-side {
+  display: flex;
+  justify-content: space-between;
+}
+.left-side,
+.right-side {
+  width: 50%;
+}
+
 .devices-img {
   width: 100px;
   object-fit: cover;
@@ -13,18 +24,17 @@ body {
   transition: all 0.3s ease;
   cursor: pointer;
 }
-.devices-name{
+.devices-name {
   display: inline;
   font-size: 20px;
 }
-.devices{
+.devices {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 20px 30px;
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
 }
@@ -32,11 +42,12 @@ body {
 .info-form {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  max-width: 600px;
   margin: auto;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgb(48, 113, 255);
+  color: white;
 }
 
 .info-form label {
@@ -56,21 +67,22 @@ body {
 .info-form textarea {
   resize: vertical;
 }
-.logout-btn{
+.logout-btn {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: rgb(210, 145, 188);
+  background-color: rgb(48, 113, 255);
   color: white;
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.details-heading{
+.details-heading {
   font-size: 30px;
   margin-bottom: 20px;
   text-align: center;
+  color: white !important;
 }
 
 .info-form .submit-btn {
@@ -79,7 +91,7 @@ body {
   align-self: center;
   width: 50%;
   border-radius: 5px;
-  background-color: rgb(210, 145, 188);
+  background-color: rgb(48, 113, 255);
   color: white;
   font-size: 16px;
   cursor: pointer;

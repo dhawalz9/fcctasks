@@ -1,20 +1,21 @@
-import Footer from "../components/Footer"
-import Navbar from "../components/Navbar"
-import "../styles/authpages.css"
+import Footer from "../components/Footer";
+import CustomNavbar from "../components/Navbar";
+import "../styles/authpages.css";
 import { useFirebase } from "../context/firebaseAuth";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-
 const SignupWithEmail = () => {
-
   const firebase = useFirebase();
 
   const navigate = useNavigate();
-  
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passworderror, setPasswordError] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const activeButton="patient";
 
   useEffect(() => {
     if (firebase.isLoggedin) {
@@ -22,27 +23,51 @@ const SignupWithEmail = () => {
     } else {
       console.log("User is not logged in");
     }
+    if(firebase?.userDetails?.isDoc){
+      navigate("/docdashboard");
+    }
   }, [firebase.isLoggedin]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      setPasswordError("Passwords do not match");
+      return;
+    }
+    else{
+      setPasswordError("");
+    }
+
+    if(password.length < 6){
+      setPasswordError("Password should be atleast 6 characters long");
+      return;
+    }
+    else{
+      setPasswordError("");
+    }
+
     const emailRegex = /\S+@\S+\.\S+/;
     if (emailRegex.test(email)) {
       console.log("You are signing up with email");
-      const result = await firebase.signupUserAndVerification(email, password, null);
+      const result = await firebase.signupUserAndVerification(
+        email,
+        password,
+        null
+      );
       console.log(result);
-      if(result.code === "auth/email-already-in-use"){
-        setPasswordError("Email already in use. Please login or use another email");
+      if (result.code === "auth/email-already-in-use") {
+        setPasswordError(
+          "Email already in use. Please login or use another email"
+        );
       }
-    }
-    else{
+    } else {
       setPasswordError("Please enter a valid email");
     }
-  }
+  };
 
   return (
     <div>
-      <Navbar />
+      <CustomNavbar />
       <div className="signup-card">
         <div className="signup-container">
           <h1>Signup</h1>
@@ -59,14 +84,20 @@ const SignupWithEmail = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            {passworderror && <p style={{color:'red'}} >{passworderror}</p>}
+            <input
+              type="password"
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              value={confirmPassword}
+              placeholder="Confirm Password"
+            />
+            {passworderror && <p style={{ color: "red" }}>{passworderror}</p>}
             <button type="submit">Verify</button>
           </form>
         </div>
       </div>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default SignupWithEmail
+export default SignupWithEmail;

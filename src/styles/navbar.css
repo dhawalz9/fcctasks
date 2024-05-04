@@ -1,6 +1,20 @@
 .App-header {
-  background-color: rgb(251, 241, 241);
-  padding: 20px;
+  background-color: rgb(255, 255, 255);
+  padding: 1px;
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+
+.App-header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+.App-header nav .logo {
+  height: 60px;
 }
 
 .App-header nav ul {
@@ -17,7 +31,7 @@
 }
 .login {
   padding: 5px;
-  background-color: rgb(210, 145, 188);
+  background-color: rgb(48, 113, 255);
 }
 
 .App-header nav ul li a {
@@ -26,10 +40,18 @@
 }
 
 .App-footer {
-  background-color: rgb(210, 145, 188);
+  background-color: rgb(0, 0, 0);
   padding: 20px;
   color: rgb(255, 255, 255);
-  position: fixed;
-  width: 100%;
   bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo-box img{
+  height: 100px;
+  margin: 30px;
 }

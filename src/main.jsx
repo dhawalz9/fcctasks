@@ -9,7 +9,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <FirebaseProvider>
-        <App />
+        {/* <main className="dark text-foreground bg-background"> */}
+          <App />
+        {/* </main> */}
       </FirebaseProvider>
     </BrowserRouter>
   </React.StrictMode>

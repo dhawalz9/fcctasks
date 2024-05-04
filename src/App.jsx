@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -18,6 +18,7 @@ function App() {
         <Route path="/signin" element={<Login/>}/>
         <Route path="/dashboard" element={<UserDashboard/>}/>
         <Route path="/about" element={<About/>} />
+        <Route path="*" element={<><h1>404 Not Found</h1><Link to='/'>Go to home</Link></>} />
       </Routes>
 
     </>
